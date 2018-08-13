@@ -1,0 +1,15 @@
+docker run --interactive --tty centos bash
+
+docker container ls -all
+
+docker image ls
+
+docker pull xxx
+
+mysql command
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:tag
+
+docker run --name some-app --link mysql:mysql -d application-that-uses-mysql
+here some-app is your app/container name
+
+docker run -it --link mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
